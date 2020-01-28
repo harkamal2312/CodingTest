@@ -1,0 +1,43 @@
+class MathClass{
+ 
+   @subtract(1)
+   @multiply(2)
+   addOne(number:number) {
+       return number+1;
+   }
+}
+ 
+console.log(new MathClass().addOne(2)) //should print 5
+
+function subtract(value: any) {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    let originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: any[]) {
+      // store original function
+      let result = originalMethod.apply(this, args);
+
+      //Subtract from the result
+      result = result - value;
+      // return the result of the original method
+      return result;
+    };
+    return descriptor;
+  };
+}
+function multiply(value: any) {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    let originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: any[]) {
+      // store original function
+      let result = originalMethod.apply(this, args);
+
+      //multiply result
+      result = result * value;
+      // return the result of the original method
+      return result;
+    };
+    return descriptor;
+  };
+}

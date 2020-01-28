@@ -1,0 +1,9 @@
+var (averageSalary, numberOfEmployee) = await SomeCalculation(0L, 10, 0L == 10L);
+
+
+//Return Type and implementation
+
+public async Task<(var averageSalary, int numberOfEmployee)> SomeCalculation(long param1, int param2, bool param3){
+
+//Implementation
+}

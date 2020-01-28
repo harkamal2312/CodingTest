@@ -1,0 +1,2 @@
+Type1 :- Answer1,Answer5  //import {Car} from "app.js";
+Type2 :- Answer2,Answer4  
